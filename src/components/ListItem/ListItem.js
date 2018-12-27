@@ -1,18 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Platform, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const listItem = (props) => {
-    if (Platform.OS === 'android') {
-        // IoS does not already support the TouchableNativeFeedback
-        return (
-            <TouchableNativeFeedback onPress={props.onPressItem}>
-                <View style={styles.listItem}>
-                    <Image source={props.placeImage} style={styles.placeImage} resizeMode='cover'/>
-                    <Text>{props.placeName}</Text>
-                </View>
-            </TouchableNativeFeedback>
-        );
-    }
     return (
         <TouchableOpacity onPress={props.onPressItem}>
             <View style={styles.listItem}>
