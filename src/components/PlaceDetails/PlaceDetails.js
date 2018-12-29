@@ -1,23 +1,51 @@
 import React from 'react';
-import { Modal, View, Image, Text, Button } from 'react-native';
+import { Modal, View, Image, Text, Button, StyleSheet } from 'react-native';
 
 const placeDetails = props => {
   let modalContent = null;
+
   if (props.selectedPlace) {
     modalContent = (
-      <Modal>
-        <View>
-          <Image source={props.selectedPlace ? props.selectedPlace.placeImage : { uri: '' }} />
-          <Text>
-            {props.selectedPlace ? props.selectedPlace.placeName : ''}
-          </Text>
-          <Button title='' />
-          <Button title='' />
-        </View>
-      </Modal>
+      <View>
+        <Image source={props.selectedPlace.image} style={styles.placeImage} />
+        <Text style={styles.placeName}>
+          {props.selectedPlace.name}
+        </Text>
+      </View>
     );
   }
-  return modalContent;
+
+  // We need to specify '!== null', otherwise the property will not work
+  // onRequestClose is required, but just for TV and android; without it, the 'back' button of the device will not work'
+  return (
+    <Modal
+      visible={props.selectedPlace !== null}
+      animationType='slide'
+      onRequestClose={props.onModalClose} >
+      <View style={styles.modalContainer}>
+        {modalContent}
+        <View>
+          <Button title='Delete' color='red' onPress={props.onItemDeleted} />
+          <Button title='Close' onPress={props.onModalClose} />
+        </View>
+      </View>
+    </Modal>
+  );
 };
+
+const styles = StyleSheet.create({
+  modalContainer: {
+    margin: 22
+  },
+  placeImage: {
+    width: '100%',
+    height: 200
+  },
+  placeName: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 28
+  }
+});
 
 export default placeDetails;

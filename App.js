@@ -16,7 +16,11 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <PlaceDetails selectedPlace={this.state.selectedPlace}></PlaceDetails>
+        <PlaceDetails
+          selectedPlace={this.state.selectedPlace}
+          onItemDeleted={this.placeDeletedHandler}
+          onModalClose={this.modalClosedHandler}>
+        </PlaceDetails>
         <PlaceInput onPlaceAdded={this.onPlaceAddedHandler}></PlaceInput>
 
         <View style={styles.listContainer}>
@@ -28,6 +32,12 @@ export default class App extends Component {
 
       </View>
     );
+  }
+
+  modalClosedHandler = () => {
+    this.setState({
+      selectedPlace: null
+    });
   }
 
   onPlaceAddedHandler = (place) => {
@@ -44,19 +54,28 @@ export default class App extends Component {
     });
   }
 
-  /* onItemDeletedHandler = key => {
-    this.setState(prevState => {
-      return {
-        // filter returns the array with all elements that matches the condition
-        places: prevState.places.filter((place) => place.key !== key)
-      };
-    });
-  } */
+  placeDeletedHandler = key => {
+    if (this.state.selectedPlace) {
+      this.setState(prevState => {
+        return {
+          selectedPlace: null,
+          places: prevState.places.filter(place => place.key !== prevState.selectedPlace.key)
+        };
+      });
+    } else {
+      this.setState(prevState => {
+        return {
+          // filter returns the array with all elements that matches the condition
+          places: prevState.places.filter((place) => place.key !== key)
+        };
+      });
+    }
+  }
 
   placeSelectedHandler = key => {
+    console.log('state: ', this.state.selectedPlace);
     this.setState(prevState => {
       return {
-        places: prevState.places,
         selectedPlace: prevState.places.find(place => place.key === key)
       };
     });
