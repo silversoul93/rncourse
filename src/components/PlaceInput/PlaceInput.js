@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
 class PlaceInput extends Component {
+    // We will not manage this state with redux 'cause it's a state relevant just for this component, and not for the app status
     state = {
         placeName: ''
     };
