@@ -13,6 +13,7 @@ const placesList = props => {
           placeName={info.item.name}
           placeImage={info.item.image}
           onPressItem={() => props.onItemSelected(info.item.key)}
+          onLongPressItem={() => props.onItemLongPressed(info.item.key)}
         />
       )}
       keyExtractor={item => item.toString()}

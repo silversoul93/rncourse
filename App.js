@@ -26,7 +26,8 @@ export default class App extends Component {
         <View style={styles.listContainer}>
           <PlacesList
             places={this.state.places}
-            onItemSelected={this.placeSelectedHandler}>
+            onItemSelected={this.placeSelectedHandler}
+            onItemLongPressed={this.placeDeletedHandler}>
           </PlacesList>
         </View>
 
