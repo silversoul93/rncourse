@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, Alert } from 'react-native';
 
 import ListItem from '../ListItem/ListItem';
 
@@ -13,7 +13,13 @@ const placesList = props => {
           placeName={info.item.name}
           placeImage={info.item.image}
           onPressItem={() => props.onItemSelected(info.item.key)}
-          onLongPressItem={() => props.onItemLongPressed(info.item.key)}
+          onLongPressItem={() => {
+            Alert.alert('Confirm', `Are you sure that you want to delete the element '${info.item.name}'?`,
+              [
+                { text: 'Ok', onPress: () => props.onItemLongPressed(info.item.key) },
+                { text: 'Cancel' }
+              ])
+          }}
         />
       )}
       keyExtractor={item => item.toString()}
