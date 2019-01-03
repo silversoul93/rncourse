@@ -5,6 +5,8 @@ const initialState = {
   selectedPlace: null
 };
 
+let count = 0;
+
 // This is our main reducer, places.js because it will manage the places state
 /**
  * @name reducer
@@ -19,7 +21,7 @@ const reducer = (state = initialState, action) => {
         // '...state' means 'put all props from the state object into this object'
         ...state,
         places: state.places.concat({
-          key: Math.random(),
+          key: count++,
           name: action.placeName,
           image: {
             uri: 'https://i.pinimg.com/originals/18/80/bd/1880bdda03b8579b3cfeebf5876ab27c.jpg'
