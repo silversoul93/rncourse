@@ -7,11 +7,13 @@ import configureStore from './src/store/configureStore';
 
 const store = configureStore();
 
+// NB. We don't need this dedicated android/ios index file, I added it just for android/ios customizations
+
 // like a simple constant it will not work
 const RNRedux = () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
+    <Provider store={store}>
+        <App />
+    </Provider>
 );
 
 // it's ok like this too
