@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const placeDetails = props => {
   let modalContent = null;
+  let icon = Icon.getImageSource('md-map', 30, 'red');
 
   if (props.selectedPlace) {
     modalContent = (
