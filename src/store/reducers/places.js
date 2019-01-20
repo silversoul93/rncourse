@@ -34,21 +34,6 @@ const reducer = (state = initialState, action) => {
         places: state.places.filter(place => place.key !== state.selectedPlace.key),
         selectedPlace: null
       };
-    case actionTypes.DELETE_PLACE_BY_KEY:
-      return {
-        ...state,
-        places: state.places.filter(place => place.key !== action.placeKey)
-      };
-    case actionTypes.SELECT_PLACE:
-      return {
-        ...state,
-        selectedPlace: state.places.find(place => place.key === action.placeKey)
-      };
-    case actionTypes.DESELECT_PLACE:
-      return {
-        ...state,
-        selectedPlace: null
-      };
     default:
       return state;
   }
