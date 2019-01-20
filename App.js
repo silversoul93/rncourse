@@ -11,22 +11,8 @@ Navigation.registerComponent('awesome-places.SharePlaceScreen', () => SharePlace
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
-      stack: {
-        id: 'AppStack',
-        children: [
-          {
-            component: {
-              name: 'awesome-places.AuthScreen',
-              options: {
-                topBar: {
-                  title: {
-                    text: 'Auth Screen'
-                  }
-                }
-              }
-            }
-          }
-        ]
+      component: {
+        name: 'awesome-places.AuthScreen'
       }
     }
   });
