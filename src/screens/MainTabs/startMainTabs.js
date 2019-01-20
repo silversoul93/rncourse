@@ -14,10 +14,24 @@ const startMainTabs = () => {
           id: 'MainTabs',
           children: [
             {
-              component: {
-                name: 'awesome-places.FindPlaceScreen',
+              stack: {
+                children: [
+                  {
+                    component: {
+                      name: 'awesome-places.FindPlaceScreen',
+                      options: {
+                        topBar: {
+                          title: {
+                            text: 'Find Place'
+                          }
+                        }
+                      }
+                    }
+                  }
+                ],
                 options: {
                   bottomTab: {
+                    title: 'Find Place',
                     text: 'Find Place',
                     icon: sources[0],
                     iconColor: 'blue'
@@ -26,18 +40,31 @@ const startMainTabs = () => {
               }
             },
             {
-              component: {
-                name: 'awesome-places.SharePlaceScreen',
+              stack: {
+                children: [
+                  {
+                    component: {
+                      name: 'awesome-places.SharePlaceScreen',
+                      options: {
+                        topBar: {
+                          title: {
+                            text: 'Share Place'
+                          }
+                        }
+                      }
+                    }
+                  }
+                ],
                 options: {
                   bottomTab: {
+                    title: 'Share Place',
                     text: 'Share Place',
                     icon: sources[1],
                     iconColor: 'blue'
                   }
                 }
               }
-            }
-
+            },
           ]
         }
       }
