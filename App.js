@@ -5,14 +5,14 @@ import SharePlace from './src/screens/SharePlace/SharePlace';
 
 import {Provider} from 'react-redux';
 import configureStore from './src/store/configureStore';
-import PlaceDetailScreen from './src/screens/PlaceDetails/PlaceDetailScreen';
+import PlaceDetails from './src/screens/PlaceDetails/PlaceDetails';
 
 const store = configureStore();
 
 Navigation.registerComponentWithRedux('awesome-places.AuthScreen', () => AuthScreen, Provider, store);
 Navigation.registerComponentWithRedux('awesome-places.FindPlaceScreen', () => FindPlace, Provider, store);
 Navigation.registerComponentWithRedux('awesome-places.SharePlaceScreen', () => SharePlace, Provider, store);
-Navigation.registerComponent('awesome-places.PlaceDetailScreen', () => PlaceDetailScreen);
+Navigation.registerComponentWithRedux('awesome-places.PlaceDetailScreen', () => PlaceDetails, Provider, store);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({

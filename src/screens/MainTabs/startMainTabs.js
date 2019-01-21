@@ -34,7 +34,7 @@ const startMainTabs = () => {
                     title: 'Find Place',
                     text: 'Find Place',
                     icon: sources[0],
-                    iconColor: 'blue'
+                    iconColor: '#9fa3a8'
                   }
                 }
               }
@@ -60,7 +60,7 @@ const startMainTabs = () => {
                     title: 'Share Place',
                     text: 'Share Place',
                     icon: sources[1],
-                    iconColor: 'blue'
+                    iconColor: '#9fa3a8'
                   }
                 }
               }
