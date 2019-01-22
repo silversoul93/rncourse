@@ -3,8 +3,25 @@ import {View} from 'react-native';
 import PlaceInput from "../../components/PlaceInput/PlaceInput";
 import {connect} from 'react-redux';
 import {addPlace} from '../../store/actions/index';
+import {Navigation} from "react-native-navigation";
 
 class SharePlaceScreen extends Component {
+
+    constructor(props) {
+        super(props);
+        Navigation.events().bindComponent(this, this.props.componentId);
+    }
+
+    navigationButtonPressed({ buttonId }) {
+        // will be called when "buttonOne" is clicked
+        Navigation.mergeOptions('MainSideMenu', {
+           sideMenu: {
+               left: {
+                   visible: true
+               }
+           }
+        });
+    }
 
     placeAddedHandler = placeName => {
         this.props.onAddPlace(placeName);

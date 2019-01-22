@@ -7,15 +7,24 @@ import {Navigation} from 'react-native-navigation';
 
 class FindPlaceScreen extends Component {
 
+  constructor(props) {
+    super(props);
+    Navigation.events().bindComponent(this, this.props.componentId);
+  }
+
+  navigationButtonPressed({buttonId}) {
+    // will be called when "buttonOne" is clicked
+    Navigation.mergeOptions('MainSideMenu', {
+      sideMenu: {
+        left: {
+          visible: true
+        }
+      }
+    });
+  }
+
   itemSelectedHandler = key => {
     const selPlace = this.props.places.find(place => place.key === key);
-    // this.props.navigator.push({
-    //   screen: 'awesome-places.PlaceDetailScreen',
-    //   title: selPlace.name,
-    //   passProps: {
-    //     selectedPlace: selPlace
-    //   }
-    // });
     Navigation.push(this.props.componentId, {
       component: {
         name: 'awesome-places.PlaceDetailScreen',
