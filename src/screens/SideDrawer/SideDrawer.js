@@ -4,11 +4,22 @@ import {View, Text, Dimensions, StyleSheet} from 'react-native';
 class SideDrawer extends Component {
   render() {
     return (
-      <View style={ {backgroundColor: 'white', width: Dimensions.get('window').width * 0.5 } }>
+      <View style={ styles.container }>
         <Text>SideDrawer Screen</Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+
+  container: {
+    paddingTop: 22,
+    backgroundColor: 'white',
+    width: Dimensions.get('window').width * 0.8,
+    flex: 1
+  }
+
+});
 
 export default SideDrawer;
