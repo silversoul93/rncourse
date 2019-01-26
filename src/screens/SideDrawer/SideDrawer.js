@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Dimensions, StyleSheet} from 'react-native';
 
 class SideDrawer extends Component {
   render() {
     return (
-      <View>
+      <View style={ {backgroundColor: 'white', width: Dimensions.get('window').width * 0.5 } }>
         <Text>SideDrawer Screen</Text>
       </View>
     );

@@ -88,20 +88,6 @@ const startMainTabs = () => {
                 },
               ]
             }
-          },
-          right: {
-            component: {
-              id: 'RightSideMenu',
-              name: 'awesome-places.SideDrawerScreen',
-              options: {
-                sideMenu: {
-                  right: {
-                    enabled: false,
-                    visible: false
-                  }
-                }
-              }
-            }
           }
         }
       }
