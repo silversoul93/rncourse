@@ -1,20 +1,26 @@
-import React, {Component} from 'react';
-import {View, Text, Button, TextInput, StyleSheet} from 'react-native';
-import {Navigation} from "react-native-navigation";
-import startMainTabs from "../MainTabs/startMainTabs";
+import React, { Component } from 'react';
+import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
+import { Navigation } from 'react-native-navigation';
+import startMainTabs from '../MainTabs/startMainTabs';
+
+import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
+import HeadingText from '../../components/UI/HeadingText/HeadingText';
+import MainText from '../../components/UI/MainText/MainText';
 
 class AuthScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Please Log In</Text>
-        <Button title='Switch to login' onPress={() => alert('TODO')}/>
+        <MainText>
+          <HeadingText>Please Log In</HeadingText>
+        </MainText>
+        <Button title='Switch to login' onPress={() => alert('TODO')} />
         <View style={styles.inputContainer}>
-          <TextInput placeholder='Your email address' style={styles.input}/>
-          <TextInput placeholder='Password' style={styles.input}/>
-          <TextInput placeholder='Confirm Password' style={styles.input}/>
+          <DefaultInput placeholder='Your email address' style={styles.input} />
+          <DefaultInput placeholder='Password' style={styles.input} />
+          <DefaultInput placeholder='Confirm Password' style={styles.input} />
         </View>
-        <Button title='Submit' onPress={this.loginHandler}/>
+        <Button title='Submit' onPress={this.loginHandler} />
       </View>
     );
   }
@@ -37,8 +43,14 @@ const styles = StyleSheet.create({
     borderColor: 'red',
     width: '80%'
   },
+  textHeading: {
+    fontSize: 28,
+    fontWeight: 'bold'
+  },
   input: {
-    width: '100%'
+    backgroundColor: '#eee',
+    borderColor: '#aaa',
+    borderRadius: 10
   }
 });
 

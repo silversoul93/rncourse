@@ -7,6 +7,7 @@
     "test": "jest",
     "android": "react-native run-android",
     "android-build": "cd ./android && ./gradlew app:assembleDebug",
+    "android-full": "npm run android-build && npm run android",
     "ios": "react-native run-ios"
   },
   "dependencies": {
