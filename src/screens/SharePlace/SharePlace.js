@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, Keyboard} from 'react-native';
 import PlaceInput from "../../components/PlaceInput/PlaceInput";
 import {connect} from 'react-redux';
 import {addPlace} from '../../store/actions/index';
@@ -25,6 +25,7 @@ class SharePlaceScreen extends Component {
 
     placeAddedHandler = placeName => {
         this.props.onAddPlace(placeName);
+        Keyboard.dismiss();
     };
 
     render() {

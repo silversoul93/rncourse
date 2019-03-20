@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import { connect } from 'react-redux';
 import PlacesList from "../../components/PlacesList/PlacesList";
 
-import {Navigation} from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
 
 class FindPlaceScreen extends Component {
 
@@ -12,7 +12,7 @@ class FindPlaceScreen extends Component {
     Navigation.events().bindComponent(this, this.props.componentId);
   }
 
-  navigationButtonPressed({buttonId}) {
+  navigationButtonPressed({ buttonId }) {
     // will be called when "buttonOne" is clicked
     Navigation.mergeOptions('MainSideMenu', {
       sideMenu: {
@@ -45,7 +45,7 @@ class FindPlaceScreen extends Component {
   render() {
     return (
       <View>
-        <PlacesList places={this.props.places} onItemSelected={this.itemSelectedHandler}/>
+        <PlacesList places={this.props.places} onItemSelected={this.itemSelectedHandler} />
       </View>
     );
   }
